@@ -95,35 +95,35 @@ function createTable() {
 									"</td><td class='left'>" + workdata.名称 +
 									"</td><td class='left'>";
 									
-		if(Math.abs(parseInt(workdata.ライフ)) >= 0){
+		if(Math.abs(parseInt(workdata.ライフ)) > 0){
 			output += "体力:" + workdata.ライフ + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.攻撃力)) >= 0){
+		if(Math.abs(parseInt(workdata.攻撃力)) > 0){
 			output += "攻撃:" + workdata.攻撃力 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.回復力)) >= 0){
+		if(Math.abs(parseInt(workdata.回復力)) > 0){
 			output += "回復:" + workdata.回復力;
 		} 
 
 		//ステータスタグを閉じる
 		output += "</td><td class='left'>";
 
-		if(Math.abs(parseInt(workdata.対水)) >= 0){
+		if(Math.abs(parseInt(workdata.対水)) > 0){
 			output += "対水:" + workdata.対水 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.対火)) >= 0){
+		if(Math.abs(parseInt(workdata.対火)) > 0){
 			output += "対火:" + workdata.対火 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.対闇)) >= 0){
+		if(Math.abs(parseInt(workdata.対闇)) > 0){
 			output += "対闇:" + workdata.対闇 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.対光)) >= 0){
+		if(Math.abs(parseInt(workdata.対光)) > 0){
 			output += "対光:" + workdata.対光 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.対無)) >= 0){
+		if(Math.abs(parseInt(workdata.対無)) > 0){
 			output += "対無:" + workdata.対無 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.対龍)) >= 0){
+		if(Math.abs(parseInt(workdata.対龍)) > 0){
 			output += "対龍:" + workdata.対龍;
 		}
 
