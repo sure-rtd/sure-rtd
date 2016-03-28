@@ -1,0 +1,94 @@
+.actions a {
+  display: block;
+  margin: 25px auto 0;
+  width: 200px;
+  text-align: center;
+  background: #b31d14;
+  color: #c8c8c8;
+  padding: 6px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.filters {
+  margin-bottom: 10px;
+}
+
+.filter-container {
+  float: left;
+  width: 17%;
+  padding-right: 5px;
+}
+
+.filter-container:last-of-type {
+  padding-right: 0;
+}
+
+.filter-container input {
+  -webkit-appearance: none;
+  border: 1px solid #999;
+  background: #FFF;
+  border-radius: 2px;
+  width: 100%;
+  font-size: small;
+}
+
+.filter-container input:focus {
+  outline: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+	white-space: nowrap;
+  text-align: left;
+  background: seagreen;
+  color: white;
+  font-size: small;
+}
+
+table th,
+table td {
+  padding: 4px 3px;
+  font-size: small;
+}
+
+table td {
+  border-bottom: 1px solid #087891;
+  font-size: small;
+}
+
+table tr:last-of-type td {
+  border-bottom: none;
+}
+
+table tr td:last-of-type {
+  border-right: none;
+}
+
+.clearfix {
+  clear: both;
+  width: 100%;
+}
+
+a,
+button,
+p,
+div {
+  font-size: small;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
