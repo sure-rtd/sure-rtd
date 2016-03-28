@@ -101,8 +101,8 @@ function createTable() {
 		if(Math.abs(parseInt(workdata.攻撃力)) >= 0){
 			output += "攻撃:" + workdata.攻撃力 + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.回復)) >= 0){
-			output += "回復:" + workdata.回復;
+		if(Math.abs(parseInt(workdata.回復力)) >= 0){
+			output += "回復:" + workdata.回復力;
 		} 
 
 		//ステータスタグを閉じる
