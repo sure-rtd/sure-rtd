@@ -1,4 +1,4 @@
-//ƒf[ƒ^‹­§XVƒ{ƒ^ƒ“
+ï»¿//ãƒ‡ãƒ¼ã‚¿å¼·åˆ¶æ›´æ–°ãƒœã‚¿ãƒ³
 $("#resetData").click(function() {
   $("#mess").text("Reloding...");
   localStorage.removeItem("rtd_accessory_status_info");
@@ -6,56 +6,56 @@ $("#resetData").click(function() {
   getAccessoryData();
 });
 
-//‰æ–Ê•`‰æŒãˆ—
+//ç”»é¢æç”»å¾Œå‡¦ç†
 $(document).ready(function() {
-  //ƒf[ƒ^æ“¾•ƒe[ƒuƒ‹¶¬
+  //ãƒ‡ãƒ¼ã‚¿å–å¾—ï¼†ãƒ†ãƒ¼ãƒ–ãƒ«ç”Ÿæˆ
   getAccessoryData();
 });
 
 /*****************************************************/
-//ƒf[ƒ^æ“¾	getAccessoryData
-//WeData‚©‚çJSONP‚Åæ“¾‚µAlocalstorage‚ÉŠi”[‚·‚éˆ—B
-//ˆ—Š®—¹Œã‚ÉŒãˆ—‚Æ‚µ‚ÄugetAccessoryData_after()v‚ğÀs‚·‚éB
+//ãƒ‡ãƒ¼ã‚¿å–å¾—	getAccessoryData
+//WeDataã‹ã‚‰JSONPã§å–å¾—ã—ã€localstorageã«æ ¼ç´ã™ã‚‹å‡¦ç†ã€‚
+//å‡¦ç†å®Œäº†å¾Œã«å¾Œå‡¦ç†ã¨ã—ã¦ã€ŒgetAccessoryData_after()ã€ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
 //	[LocalStorage Key]
-//		rtd_accessory_status_info : WeDataŠî–{î•ñBXV“ú“™‚ğ•ÛB
-//		rtd_accessory_status_items : ƒ†ƒjƒbƒgƒXƒe[ƒ^ƒXƒf[ƒ^–{‘ÌB
+//		rtd_accessory_status_info : WeDataåŸºæœ¬æƒ…å ±ã€‚æ›´æ–°æ—¥ç­‰ã‚’ä¿æŒã€‚
+//		rtd_accessory_status_items : ãƒ¦ãƒ‹ãƒƒãƒˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ‡ãƒ¼ã‚¿æœ¬ä½“ã€‚
 /*****************************************************/
 function getAccessoryData() {
   var flgNeedGetJsonData = false;
   var chkInfo;
   var chkItems;
-  // ƒ[ƒJƒ‹ƒXƒgƒŒ[ƒW‘Î‰”»’è
+  // ãƒ­ãƒ¼ã‚«ãƒ«ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸å¯¾å¿œåˆ¤å®š
   if (!localStorage) {
-    alert('ƒ[ƒJƒ‹ƒXƒgƒŒ[ƒW‚É‘Î‰‚µ‚½ƒuƒ‰ƒEƒU‚ğg—p‚µ‚Ä‚­‚¾‚³‚¢B');
+    alert('ãƒ­ãƒ¼ã‚«ãƒ«ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«å¯¾å¿œã—ãŸãƒ–ãƒ©ã‚¦ã‚¶ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚');
     flgNeedGetJsonData = true;
     retrun(false);
   } else {
-    //LS‘¶İƒ`ƒFƒbƒN
+    //LSå­˜åœ¨ãƒã‚§ãƒƒã‚¯
     chkInfo = localStorage.getItem('rtd_accessory_status_info');
     chkItems = localStorage.getItem('rtd_accessory_status_items');
     if (!chkInfo || !chkItems) {
       flgNeedGetJsonData = true;
     }
   }
-  //LSƒf[ƒ^XVŠm”FiJSONPjrtd_accessory_status_info
+  //LSãƒ‡ãƒ¼ã‚¿æ›´æ–°ç¢ºèªï¼ˆJSONPï¼‰rtd_accessory_status_info
   var url = 'http://wedata.net/databases/rtd_accessory_lists.json?callback=?';
   chkInfo = JSON.parse(chkInfo);
   $.getJSON(url, function(jsonAccessoryStatusInfo) {
-    $("#mess").text("ƒf[ƒ^XVŠm”F’†...");
+    $("#mess").text("ãƒ‡ãƒ¼ã‚¿æ›´æ–°ç¢ºèªä¸­...");
     if (flgNeedGetJsonData || (chkInfo['updated_at'] !=  jsonAccessoryStatusInfo['updated_at'])) {
       localStorage.setItem('rtd_accessory_status_info', JSON.stringify(jsonAccessoryStatusInfo));
       flgNeedGetJsonData = true;
     }
 
-$("#lastUpdate").text("ƒf[ƒ^ÅIXV: " + jsonAccessoryStatusInfo['updated_at']);
+$("#lastUpdate").text("ãƒ‡ãƒ¼ã‚¿æœ€çµ‚æ›´æ–°: " + jsonAccessoryStatusInfo['updated_at']);
 
-    //ƒf[ƒ^æ“¾‚ª•K—v‚Èê‡
+    //ãƒ‡ãƒ¼ã‚¿å–å¾—ãŒå¿…è¦ãªå ´åˆ
     if (flgNeedGetJsonData) {
-      //ƒf[ƒ^æ“¾iJSONPj
-      //æ“¾Œ³Fhttp://wedata.net/databases/rtd_accessory_lists/items
+      //ãƒ‡ãƒ¼ã‚¿å–å¾—ï¼ˆJSONPï¼‰
+      //å–å¾—å…ƒï¼šhttp://wedata.net/databases/rtd_accessory_lists/items
       var url = 'http://wedata.net/databases/rtd_accessory_lists/items.json?callback=?';
       $.getJSON(url, function(jsonAccessoryData) {
-        $("#mess").text("ƒf[ƒ^æ“¾Às’†...");
+        $("#mess").text("ãƒ‡ãƒ¼ã‚¿å–å¾—å®Ÿè¡Œä¸­...");
         localStorage.setItem('rtd_accessory_status_items', JSON.stringify(jsonAccessoryData));
         getAccessoryData_after();
       });
@@ -65,97 +65,97 @@ $("#lastUpdate").text("ƒf[ƒ^ÅIXV: " + jsonAccessoryStatusInfo['updated_at']
   });
 }
 
-//ƒf[ƒ^æ“¾Œãˆ—ŠÖ”
+//ãƒ‡ãƒ¼ã‚¿å–å¾—å¾Œå‡¦ç†é–¢æ•°
 function getAccessoryData_after() {
   createTable();
 }
 
 /*****************************/
-//ƒe[ƒuƒ‹¶¬
+//ãƒ†ãƒ¼ãƒ–ãƒ«ç”Ÿæˆ
 /*****************************/
 function createTable() {
 
-  $("#mess").text("ƒe[ƒuƒ‹¶¬’†...");
-  //LS‚©‚çƒf[ƒ^‚ğJSONŒ`®‚Åˆøo
+  $("#mess").text("ãƒ†ãƒ¼ãƒ–ãƒ«ç”Ÿæˆä¸­...");
+  //LSã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’JSONå½¢å¼ã§å¼•å‡º
   var accessorydata = JSON.parse(localStorage.getItem('rtd_accessory_status_items'));
 
-  //ƒf[ƒ^®—(No‚Å¸‡ƒ\[ƒg)
+  //ãƒ‡ãƒ¼ã‚¿æ•´ç†(Noã§æ˜‡é †ã‚½ãƒ¼ãƒˆ)
   accessorydata.sort(function(val1, val2) {
     return (Number(val1.data.No) > Number(val2.data.No) ? 1 : -1);
   });
 
-  //tbody‰Šú‰»
+  //tbodyåˆæœŸåŒ–
   $('table#accessoryStatusTable tbody *').remove();
 
-	//o—Í—ñì¬
+	//å‡ºåŠ›åˆ—ä½œæˆ
   for (var key in accessorydata) {
     var workdata = accessorydata[key].data;
 		var output = 	"<tr><td class='center'>" + workdata.No + 
-									"</td><td class='left'>" + workdata.Œ³ƒ†ƒjƒbƒg + 
-									"</td><td class='left'>" + workdata.–¼Ì +
+									"</td><td class='left'>" + workdata.å…ƒãƒ¦ãƒ‹ãƒƒãƒˆ + 
+									"</td><td class='left'>" + workdata.åç§° +
 									"</td><td class='left'>";
 									
-		if(Math.abs(parseInt(workdata.ƒ‰ƒCƒt)) >= 0){
-			output += "‘Ì—Í:" + workdata.ƒ‰ƒCƒt + "<br>";
+		if(Math.abs(parseInt(workdata.ãƒ©ã‚¤ãƒ•)) >= 0){
+			output += "ä½“åŠ›:" + workdata.ãƒ©ã‚¤ãƒ• + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.UŒ‚—Í)) >= 0){
-			output += "UŒ‚:" + workdata.UŒ‚—Í + "<br>";
+		if(Math.abs(parseInt(workdata.æ”»æ’ƒåŠ›)) >= 0){
+			output += "æ”»æ’ƒ:" + workdata.æ”»æ’ƒåŠ› + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.‰ñ•œ)) >= 0){
-			output += "‰ñ•œ:" + workdata.‰ñ•œ;
+		if(Math.abs(parseInt(workdata.å›å¾©)) >= 0){
+			output += "å›å¾©:" + workdata.å›å¾©;
 		} 
 
-		//ƒXƒe[ƒ^ƒXƒ^ƒO‚ğ•Â‚¶‚é
+		//ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚¿ã‚°ã‚’é–‰ã˜ã‚‹
 		output += "</td><td class='left'>";
 
-		if(Math.abs(parseInt(workdata.‘Î…)) >= 0){
-			output += "‘Î…:" + workdata.‘Î… + "<br>";
+		if(Math.abs(parseInt(workdata.å¯¾æ°´)) >= 0){
+			output += "å¯¾æ°´:" + workdata.å¯¾æ°´ + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.‘Î‰Î)) >= 0){
-			output += "‘Î‰Î:" + workdata.‘Î‰Î + "<br>";
+		if(Math.abs(parseInt(workdata.å¯¾ç«)) >= 0){
+			output += "å¯¾ç«:" + workdata.å¯¾ç« + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.‘ÎˆÅ)) >= 0){
-			output += "‘ÎˆÅ:" + workdata.‘ÎˆÅ + "<br>";
+		if(Math.abs(parseInt(workdata.å¯¾é—‡)) >= 0){
+			output += "å¯¾é—‡:" + workdata.å¯¾é—‡ + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.‘ÎŒõ)) >= 0){
-			output += "‘ÎŒõ:" + workdata.‘ÎŒõ + "<br>";
+		if(Math.abs(parseInt(workdata.å¯¾å…‰)) >= 0){
+			output += "å¯¾å…‰:" + workdata.å¯¾å…‰ + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.‘Î–³)) >= 0){
-			output += "‘Î–³:" + workdata.‘Î–³ + "<br>";
+		if(Math.abs(parseInt(workdata.å¯¾ç„¡)) >= 0){
+			output += "å¯¾ç„¡:" + workdata.å¯¾ç„¡ + "<br>";
 		}
-		if(Math.abs(parseInt(workdata.‘Î—´)) >= 0){
-			output += "‘Î—´:" + workdata.‘Î—´;
+		if(Math.abs(parseInt(workdata.å¯¾é¾)) >= 0){
+			output += "å¯¾é¾:" + workdata.å¯¾é¾;
 		}
 
-		//“Á‰»ƒ_ƒ[ƒWƒ^ƒO‚ğ•Â‚¶‚Äo—Í‚ğŠ®¬‚³‚¹‚é
-		output += "</td><td class='left'>" + workdata.“ÁêŒø‰Ê + 
+		//ç‰¹åŒ–ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚¿ã‚°ã‚’é–‰ã˜ã¦å‡ºåŠ›ã‚’å®Œæˆã•ã›ã‚‹
+		output += "</td><td class='left'>" + workdata.ç‰¹æ®ŠåŠ¹æœ + 
 									"</td></tr>";
 
 		$(output).appendTo("table#accessoryStatusTable tbody");
   }
 
-  //ƒe[ƒuƒ‹¶¬ŒãÀsŠÖ”
+  //ãƒ†ãƒ¼ãƒ–ãƒ«ç”Ÿæˆå¾Œå®Ÿè¡Œé–¢æ•°
   exeAfter();
 }
 
 /*****************************/
-//ƒe[ƒuƒ‹¶¬ŒãÀsŠÖ”
+//ãƒ†ãƒ¼ãƒ–ãƒ«ç”Ÿæˆå¾Œå®Ÿè¡Œé–¢æ•°
 /*****************************/
 function exeAfter() {
-  //ƒƒbƒZ[ƒWƒNƒŠƒA
+  //ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¯ãƒªã‚¢
   $("#mess").text("");
 
   //TODO
-  //ƒ\[ƒgˆ—
+  //ã‚½ãƒ¼ãƒˆå‡¦ç†
 
-  //ƒtƒBƒ‹ƒ^ŠÖ”
+  //ãƒ•ã‚£ãƒ«ã‚¿é–¢æ•°
   setFilter();
   $('.filter').multifilter();
 
 }
 
 /*****************************/
-//ƒtƒBƒ‹ƒ^ŠÖ”
+//ãƒ•ã‚£ãƒ«ã‚¿é–¢æ•°
 /*****************************/
 function setFilter() {
   $.fn.multifilter = function(options) {
