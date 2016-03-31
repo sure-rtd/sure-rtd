@@ -185,8 +185,8 @@ var imgUrl = [
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
 
-startButton.addEventListener('click', start());
-resetButton.addEventListener('click', reset());
+startButton.addEventListener('click', start;
+resetButton.addEventListener('click', reset;
 
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
