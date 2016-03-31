@@ -1,10 +1,5 @@
-var calcButton = document.getElementById('calc');
-var clearButton = document.getElementById('clear');
-
-calcButton.addEventListener('click', calc);
-clearButton.addEventListener('click', clear);
-
-function calc(){
+function calc(frmset){
+if(frmset==1){
 	var getRate1 = document.getElementById('getRate1');
 	var getRate2 = document.getElementById('getRate2');
 	var getRate3 = document.getElementById('getRate3');
@@ -53,8 +48,7 @@ function calc(){
     msg.value = text[textId];
 	}
 }
-
-function clear(){
+}else if(frmset==2){
 	var getNumber = document.getElementById('getNumber');
 	var setRate = document.getElementById('setRate');
 	var msg = document.getElementById('msg');
