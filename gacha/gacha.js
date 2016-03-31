@@ -1,5 +1,5 @@
 function calc(frmset){
-if(frmset=1){
+if(frmset==1){
 	var getRate1 = document.getElementById('getRate1');
 	var getRate2 = document.getElementById('getRate2');
 	var getRate3 = document.getElementById('getRate3');
@@ -47,7 +47,7 @@ if(frmset=1){
 		textId = Math.floor(parseInt(rate) / 10);
     msg.value = text[textId];
 	}
-}else if(frmset=2){
+}else if(frmset==2){
 	var getNumber = document.getElementById('getNumber');
 	var setRate = document.getElementById('setRate');
 	var msg = document.getElementById('msg');
