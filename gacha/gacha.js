@@ -1,4 +1,4 @@
-﻿var calcButton = document.getElementById('calc');
+var calcButton = document.getElementById('calc');
 var clearButton = document.getElementById('clear');
 
 calcButton.addEventListener('click', calc);
