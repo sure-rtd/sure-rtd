@@ -185,8 +185,6 @@ imgUrl = [
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
 
-}
-
 startButton.addEventListener('click', start);
 
 /*****************************************************/
@@ -209,7 +207,6 @@ function start() {
     }, 10);
     //ボタンの表示をSTOPに変更
     startButton.innerHTML = 'STOP';
-startButton.addEventListener('click', start);
 }
 /*****************************************************/
 //スロット停止：STOPボタンを押すと作動
@@ -243,9 +240,7 @@ else if(statusFlg==='start'){
 		nMax -= 1;
     //ボタンの表示をSTARTに変更
     startButton.innerHTML = 'START';
-startButton.addEventListener('click', start);
 	}else{
-startButton.addEventListener('click', start);
   //停止状態以外では何もしない
   }
 }
