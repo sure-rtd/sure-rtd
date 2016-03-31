@@ -1,19 +1,22 @@
+var counter = 0;
+function start() {
+	if(counter==0){
 /*****************************************************/
 //共通変数設定
 /*****************************************************/
-statusFlg = 'stop';
-startButton = document.getElementById('start');
-displayArea = document.getElementById('display');
-imageArea = document.getElementById('image');
-resultArea = document.getElementById('result');
+var statusFlg = 'stop';
+var startButton = document.getElementById('start');
+var displayArea = document.getElementById('display');
+var imageArea = document.getElementById('image');
+var resultArea = document.getElementById('result');
 
-slotTime = null;
-result = [];
-slotNumber = 0;
-nMax = 82;
-nMin = 0;
+var slotTime = null;
+var result = [];
+var slotNumber = 0;
+var nMax = 82;
+var nMin = 0;
 
-units = [
+var units = [
 'グレン',
 'リヴィオ',
 'サヤ',
@@ -99,7 +102,7 @@ units = [
 'ジ・オース'
 ];
 
-imgUrl = [
+var imgUrl = [
 'https://3.bp.blogspot.com/-6HVKKn-Mc9s/VvFKxEn-7mI/AAAAAAAAKOo/Ug_KeI_zQ9UP6taqKIB106usCnPTJqjow/s1600/01.png"',
 'https://3.bp.blogspot.com/-0pNjPl3ALOc/VvFKxBqpWSI/AAAAAAAAKOs/4S25qzr0w30uHPKmSZvkwCc4E8XcpUjCg/s1600/02.png"',
 'https://4.bp.blogspot.com/--lEDdPx0hyk/VvFKxPs2LGI/AAAAAAAAKOk/ogGkYtxBbJg1zQo0qoMkv3sFCAuZbp5-A/s1600/03.png"',
@@ -185,13 +188,12 @@ imgUrl = [
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
 
-startButton.addEventListener('click', start);
-
+}
+counter +=1;
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
-function start() {
-	if(statusFlg==='stop'){
+if(statusFlg==='stop'){
         
         //ステータスを開始状態に
 		statusFlg = 'start';
@@ -240,7 +242,5 @@ else if(statusFlg==='start'){
 		nMax -= 1;
     //ボタンの表示をSTARTに変更
     startButton.innerHTML = 'START';
-	}else{
-  //停止状態以外では何もしない
-  }
+	}
 }
