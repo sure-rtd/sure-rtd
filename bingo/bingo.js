@@ -292,3 +292,4 @@ function reset() {
 */
     location.reload();
 }
+ 
