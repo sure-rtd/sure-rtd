@@ -1,7 +1,6 @@
 /*****************************************************/
 //共通変数設定
 /*****************************************************/
-function setElements(){
 var startButton = document.getElementById('start');
 var resetButton = document.getElementById('reset');
 var displayArea = document.getElementById('display');
@@ -188,8 +187,6 @@ var imgUrl = [
 
 startButton.addEventListener('click', start);
 resetButton.addEventListener('click', reset);
-
-}
 
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
