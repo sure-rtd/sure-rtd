@@ -1,34 +1,29 @@
-﻿<html>
-<meta>
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-</meta>
-<head>
-	<link rel="stylesheet" type="text/css" href="gacha/gacha.css">
-	<script type="text/javascript" src="gacha/gacha.js"></script>
-</head>
-<body>
-  <div>
-<p>Rtd Gacha Simulator</p>
-<input type="radio" id="getRate1" name="getRate" value="1" checked="checked"><p1>：降臨！</p1><br><br>
-<input type="radio" id="getRate2" name="getRate" value="2"><p1>：確率アップ！</p1><br><br>
-<input type="radio" id="getRate3" name="getRate" value="3"><p1>：激アップ！</p1><br><br>
-<input type="radio" id="getRate4" name="getRate" value="4"><p1>：激烈アップ！</p1><br><br>
-<br>
-<input type="text" id="getNumber" value="">
-  <p2> &nbsp;回ガチャを引く！</p2>
-<br>
-<br>
-<button type="button" id="calc">計算！</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-<button type="button" id="clear">クリア</button>
-<br>
-<p2>計算結果：</p2>
-  <input type="text" id="setRate" value="">
-<br>
-<p3>コメント：</p3><br>
-<input type="text" id="msg" value="">
-</div>
-</body>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="gacha/gacha.css">
+		<script type="text/javascript" src="gacha/gacha.js"></script>
+	</head>
+	<body>
+  	<div>
+			<p>Rtd Gacha Simulator</p>
+			<input type="radio" id="getRate1" name="getRate" value="1" checked="checked"><p1>：降臨！</p1><br><br>
+			<input type="radio" id="getRate2" name="getRate" value="2"><p1>：確率アップ！</p1><br><br>
+			<input type="radio" id="getRate3" name="getRate" value="3"><p1>：激アップ！</p1><br><br>
+			<input type="radio" id="getRate4" name="getRate" value="4"><p1>：激烈アップ！</p1><br><br>
+			<br>
+			<input type="text" id="getNumber" value="">
+  		<p2> &nbsp;回ガチャを引く！</p2>
+			<br>
+			<br>
+			<button type="button" id="calc" onclick="calc()">計算！</button>
+			 &nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="button" id="clear" onclick="clear()>クリア</button>
+			<br>
+			<p2>計算結果：</p2>
+  		<input type="text" id="setRate" value="">
+			<br>
+			<p3>コメント：</p3><br>
+			<input type="text" id="msg" value="">
+		</div>
+	</body>
 </html>
-
-  
