@@ -185,6 +185,10 @@ var imgUrl = [
 'https://4.bp.blogspot.com/-m1PNeQdtKtQ/VvFK6gB6JXI/AAAAAAAAKRA/dfKgFZrfZYofPW-L2jbUoHAaHv4BKYllA/s1600/icon145.png"',
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
+
+startButton.addEventListener('click', start);
+resetButton.addEventListener('click', reset);
+
 }
 
 /*****************************************************/
