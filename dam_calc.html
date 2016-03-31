@@ -1,0 +1,338 @@
+﻿<html>
+<meta>
+<script src="https://ajax.googleapis.com/ajax/libs/mootools/1.5.0/mootools-yui-compressed.js"></script>
+</meta>
+<head>
+	<link rel="stylesheet" type="text/css" href="dam_calc.css">
+	<script type="text/javascript" src="dam_calc.js"></script>
+</head>
+<body>
+【Notice】<br>
+<p>※弱点有無は有り(1)、無し(0)を指定してください。</p>
+<p>※カットイン補正は通常カットイン(1.0)、稲妻カットイン(1.5)を指定してください。</p>
+<p>※ユニット名はメモ用にご自由にどうぞ。</p>
+<br>
+【Input】
+<table>
+<thead>
+<tr>
+<td>項目名</td>
+<td>Unit1</td>
+<td>Unit2</td>
+<td>Unit3</td>
+<td>Unit4</td>
+<td>Unit5</td>
+<td>Unit6</td>
+</tr>
+</thead>
+<tr>
+<td>ユニット名</td>
+<td><INPUT TYPE="text" id="name1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="text" id="name2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="text" id="name3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="text" id="name4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="text" id="name5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="text" id="name6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>ユニット攻撃力</td>
+<td><INPUT TYPE="number" id="base_atk1" VALUE="10000" SIZE=5/></td>
+<td><INPUT TYPE="number" id="base_atk2" VALUE="10000" SIZE=5/></td>
+<td><INPUT TYPE="number" id="base_atk3" VALUE="10000" SIZE=5/></td>
+<td><INPUT TYPE="number" id="base_atk4" VALUE="10000" SIZE=5/></td>
+<td><INPUT TYPE="number" id="base_atk5" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="base_atk6" VALUE="0" SIZE=5/></td>
+</tr>
+<tr>
+<td>攻撃力ボーナス</td>
+<td><INPUT TYPE="number" id="bonus_atk1" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_atk2" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_atk3" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_atk4" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_atk5" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_atk6" VALUE="0" SIZE=5/></td>
+</tr>
+<tr>
+<td>特化ダメージ</td>
+<td><INPUT TYPE="number" id="bonus_dmg1" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_dmg2" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_dmg3" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_dmg4" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_dmg5" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_dmg6" VALUE="0" SIZE=5/></td>
+</tr>
+<tr>
+<td>アサルト補正率</td>
+<td><INPUT TYPE="number" id="assault_rate1" VALUE="0.10" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_rate2" VALUE="0.10" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_rate3" VALUE="0.10" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_rate4" VALUE="0.10" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_rate5" VALUE="0.10" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_rate6" VALUE="0.10" SIZE=5/></td>
+</tr>
+<tr>
+<td>全力補正率</td>
+<td><INPUT TYPE="number" id="full_rate1" VALUE="0.15" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_rate2" VALUE="0.15" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_rate3" VALUE="0.15" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_rate4" VALUE="0.15" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_rate5" VALUE="0.15" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_rate6" VALUE="0.15" SIZE=5/></td>
+</tr>
+<tr>
+<td>弱点補正</td>
+<td><INPUT TYPE="number" id="bonus_weak1" VALUE="100" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_weak2" VALUE="100" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_weak3" VALUE="100" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_weak4" VALUE="100" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_weak5" VALUE="100" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_weak6" VALUE="100" SIZE=5/></td>
+</tr>
+<tr>
+<td>属性補正</td>
+<td><INPUT TYPE="number" id="bonus_element1" VALUE="300" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_element2" VALUE="300" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_element3" VALUE="300" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_element4" VALUE="300" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_element5" VALUE="300" SIZE=5/></td>
+<td><INPUT TYPE="number" id="bonus_element6" VALUE="300" SIZE=5/></td>
+</tr>
+<tr>
+<td>属性補正数</td>
+<td><INPUT TYPE="number" id="number_element1" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_element2" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_element3" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_element4" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_element5" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_element6" VALUE="0" SIZE=5/></td>
+</tr>
+<tr>
+<td>チェイン補正</td>
+<td><INPUT TYPE="number" id="chain_rate1" VALUE="0.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="chain_rate2" VALUE="0.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="chain_rate3" VALUE="0.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="chain_rate4" VALUE="0.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="chain_rate5" VALUE="0.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="chain_rate6" VALUE="0.0" SIZE=5/></td>
+</tr>
+<tr>
+<td>ダメージ倍率</td>
+<td><INPUT TYPE="number" id="multiple_rate1" VALUE="1.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="multiple_rate2" VALUE="1.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="multiple_rate3" VALUE="1.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="multiple_rate4" VALUE="1.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="multiple_rate5" VALUE="1.0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="multiple_rate6" VALUE="1.0" SIZE=5/></td>
+</tr>
+<tr>
+<td>ヒット数</td>
+<td><INPUT TYPE="number" id="number_hit1" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_hit2" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_hit3" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_hit4" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_hit5" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="number_hit6" VALUE="1" SIZE=5/></td>
+</tr>
+<tr>
+<td>弱点有無</td>
+<td><INPUT TYPE="number" id="weak_flg1" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_flg2" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_flg3" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_flg4" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_flg5" VALUE="1" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_flg6" VALUE="1" SIZE=5/></td>
+</tr>
+<tr>
+<td>カットイン補正</td>
+<td><INPUT TYPE="number" id="cutin_rate1" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="cutin_rate2" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="cutin_rate3" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="cutin_rate4" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="cutin_rate5" VALUE="0" SIZE=5/></td>
+<td><INPUT TYPE="number" id="cutin_rate6" VALUE="0" SIZE=5/></td>
+</tr>
+<tr>
+<td>ユニットクリア</td>
+<td><center>
+<input type="button" id="clear1" value="クリア" onclick="clr(1)" />
+</center></td>
+<td><center>
+<input type="button" id="clear2" value="クリア" onclick="clr(2)" />
+</center></td>
+<td><center>
+<input type="button" id="clear3" value="クリア" onclick="clr(3)" />
+</center></td>
+<td><center>
+<input type="button" id="clear4" value="クリア" onclick="clr(4)" />
+</center></td>
+<td><center>
+<input type="button" id="clear5" value="クリア" onclick="clr(5)" />
+</center></td>
+<td><center>
+<input type="button" id="clear6" value="クリア" onclick="clr(6)" />
+</center></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>敵防御</td>
+<td><INPUT TYPE="number" id="enemy_def" VALUE="0" SIZE=5/></td>
+<td><center>
+<input type="button" id="clear_def" value="防御クリア" onclick="clr_def()" />
+</center></td>
+</tr>
+<tr>
+<td colspan="7">&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2"><input type="button" id="calc" value="ダメージ計算！" onclick="calc()" /></td>
+<td colspan="2"><input type="button" id="default" value="デフォルト" onclick="setDef()" /></td>
+<td colspan="2"><input type="button" id="clear" value="全項目クリア" onclick="clr()" /></td>
+</tr>
+</table>
+<br>
+<br> 【TotalResult】
+<br>
+<table>
+<thead>
+<tr>
+<td>項目名</td>
+<td>計算結果</td>
+</tr>
+</thead>
+<tr>
+<td>Hit数</td>
+<td><INPUT TYPE="number" id="party_hit" VALUE="" SIZE=15/></td>
+</tr>
+<tr>
+<td>上限ダメージ</td>
+<td><INPUT TYPE="number" id="party_full_dmg" VALUE="" SIZE=15/></td>
+</tr>
+<tr>
+<td>期待ダメージ</td>
+<td><INPUT TYPE="number" id="party_exp_dmg" VALUE="" SIZE=15/></td>
+</tr>
+<tr>
+<td>下限ダメージ</td>
+<td><INPUT TYPE="number" id="party_base_dmg" VALUE="" SIZE=15/></td>
+</tr>
+</table>
+<br>
+<br> 【UnitResult】
+<br>
+<table>
+<thead>
+<tr>
+<td>項目名</td>
+<td>Unit1</td>
+<td>Unit2</td>
+<td>Unit3</td>
+<td>Unit4</td>
+<td>Unit5</td>
+<td>Unit6</td>
+</tr>
+</thead>
+<tr>
+<td>合計攻撃力</td>
+<td><INPUT TYPE="number" id="atk1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>攻撃力ダメージ</td>
+<td><INPUT TYPE="number" id="atk_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="atk_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>アサルトダメージ</td>
+<td><INPUT TYPE="number" id="assault_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="assault_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>全力ダメージ</td>
+<td><INPUT TYPE="number" id="full_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="full_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>弱点ダメージ</td>
+<td><INPUT TYPE="number" id="weak_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="weak_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>属性ダメージ</td>
+<td><INPUT TYPE="number" id="element_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="element_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="element_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="element_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="element_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="element_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>1Hit(基本)</td>
+<td><INPUT TYPE="number" id="unit_base_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_base_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_base_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_base_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_base_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_base_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>1Hit(全力)</td>
+<td><INPUT TYPE="number" id="unit_full_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_full_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_full_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_full_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_full_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="unit_full_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>基本合計</td>
+<td><INPUT TYPE="number" id="total_base_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_base_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_base_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_base_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_base_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_base_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>全力合計</td>
+<td><INPUT TYPE="number" id="total_full_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_full_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_full_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_full_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_full_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_full_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+<tr>
+<td>期待値合計</td>
+<td><INPUT TYPE="number" id="total_exp_dmg1" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_exp_dmg2" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_exp_dmg3" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_exp_dmg4" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_exp_dmg5" VALUE="" SIZE=5/></td>
+<td><INPUT TYPE="number" id="total_exp_dmg6" VALUE="" SIZE=5/></td>
+</tr>
+</table>
+</body>
+</html>

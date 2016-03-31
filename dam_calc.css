@@ -1,0 +1,79 @@
+﻿p {
+  font-size: x-small;
+}
+
+td {
+  white-space: nowrap;
+  margin: 1px;
+  padding: 1px;
+  border: none;
+  font-size: x-small;
+}
+tr td:nth-of-type(1){
+//  background-color: white;
+}
+thead {
+  color: white;
+  font-size: x-small;
+}
+thead td:nth-of-type(1),thead td{
+  background-color: seagreen;
+  text-align:center;
+}
+
+input{
+  font-size: x-small;
+}
+
+input[type=number] {
+  text-align: right;
+  width: 95%;
+}
+input[type=text] {
+  text-align: center;
+  width: 95%;
+}
+
+input[type=button] {
+  text-align:center;
+  width: 95%;
+}
+
+@media only screen and (max-device-width: 480px) {
+  /* デバイス幅によって以下を適用 */
+  p {
+    font-size: xx-small;
+  }
+  td {
+    white-space: nowrap;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    font-size: xx-small;
+  }
+  thead {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    color: white;
+    font-size: xx-small;
+  }  
+  thead td:nth-of-type(1),thead td{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: seagreen;
+    text-align:center;
+    font-size: xx-small;
+  }
+
+  input[type=number] {
+    width: 60%;
+    font-size: xx-small;
+  }
+  input[type=button] {
+    text-align:center;
+    font-size: xx-small;
+    width: 80%;
+  }
+}
