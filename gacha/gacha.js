@@ -47,7 +47,6 @@ if(frmset==1){
 		textId = Math.floor(parseInt(rate) / 10);
     msg.value = text[textId];
 	}
-}
 }else if(frmset==2){
 	var getNumber = document.getElementById('getNumber');
 	var setRate = document.getElementById('setRate');
