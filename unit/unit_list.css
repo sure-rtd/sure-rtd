@@ -1,0 +1,126 @@
+﻿.actions a {
+  display: block;
+  margin: 25px auto 0;
+  width: 200px;
+  text-align: center;
+  background: #b31d14;
+  color: #c8c8c8;
+  padding: 6px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filter-container {
+  float: left;
+  width: 15%;
+  padding-right: 10px;
+}
+
+.filter-container:last-of-type {
+  padding-right: 0;
+}
+
+.filter-container input {
+  -webkit-appearance: none;
+  border: 1px solid #999;
+  background: #FFF;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.filter-container input:focus {
+  outline: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  text-align: center;
+  border-bottom: 1px solid #043a47;
+}
+
+table th,
+table td {
+  padding: 6px 4px;
+}
+
+table td {
+  border-bottom: 1px solid #087891;
+}
+
+table tr:last-of-type td {
+  border-bottom: none;
+}
+
+table tr td:last-of-type {
+  border-right: none;
+}
+
+.clearfix {
+  clear: both;
+  width: 100%;
+}
+
+a,
+button,
+p,
+div {
+  text-align: right;
+}
+tbody {
+    overflow-y: scroll;
+    height: 800px;
+}
+
+#unitStatusTable th:nth-of-type(1),
+#unitStatusTable td:nth-of-type(1) {
+    text-align: center;
+    width: 20px;
+}
+#unitStatusTable th:nth-of-type(2),
+#unitStatusTable td:nth-of-type(2) {
+    text-align: left;
+    width: 140px;
+}
+#unitStatusTable th:nth-of-type(3),
+#unitStatusTable td:nth-of-type(3) {
+    text-align: center;
+    width: 20px;
+}
+#unitStatusTable th:nth-of-type(4),
+#unitStatusTable td:nth-of-type(4) {
+    text-align: center;
+    width: 50px;
+}
+#unitStatusTable th:nth-of-type(5),
+#unitStatusTable td:nth-of-type(5) {
+    text-align: center;
+    width: 50px;
+}
+#unitStatusTable th:nth-of-type(6),
+#unitStatusTable td:nth-of-type(6) {
+    text-align: center;
+    width: 50px;
+}
+#unitStatusTable th:nth-of-type(7),
+#unitStatusTable td:nth-of-type(7) {
+    text-align: right;
+    width: 70px;
+}
+#unitStatusTable th:nth-of-type(8),
+#unitStatusTable td:nth-of-type(8) {
+    text-align: right;
+    width: 70px;
+}
+#unitStatusTable th:nth-of-type(9),
+#unitStatusTable td:nth-of-type(9) {
+    text-align: right;
+    width: 70px;
+}

@@ -1,0 +1,59 @@
+﻿<html>
+<meta>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+</meta>
+<head>
+	<link rel="stylesheet" type="text/css" href="unit/unit_list.css">
+	<script type="text/javascript" src="unit/unit_list.js"></script>
+</head>
+<body>
+<div class='container'>
+  <div class='filters'>
+    <div class='filter-container'>
+      <input autocomplete='off' class='filter' name='名称' placeholder='名称' />
+    </div>
+    <div class='filter-container'>
+      <input autocomplete='off' class='filter' name='★' placeholder='★' />
+    </div>
+    <div class='filter-container'>
+      <input autocomplete='off' class='filter' name='武器' placeholder='武器' />
+    </div>
+    <div class='filter-container'>
+      <input autocomplete='off' class='filter' name='主属性' placeholder='主属性' />
+    </div>
+    <div class='filter-container'>
+      <input autocomplete='off' class='filter' name='副属性' placeholder='副属性' />
+    </div>
+    <div class='clearfix'></div>
+  </div>
+</div>
+<div class='container'>
+  <table id="unitStatusTable">
+    <thead>
+      <th>No</th>
+      <th>名称</th>
+      <th>★</th>
+      <th>武器</th>
+      <th>主属性</th>
+      <th>副属性</th>
+      <th>HP</th>
+      <th>攻撃</th>
+      <th>回復</th>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <br>
+  <div>
+    <a href="http://wedata.net/databases/rtd_unit_status/items">データ管理場所＠WeData</a>
+    <P id="lastUpdate"></P>
+    <button id="resetData">
+      データ再取得 (強制更新用。通常は自動で更新されます。)
+    </button>
+    <P id="mess"></P>
+  </div>
+  </body>
+</html>
+
+  
