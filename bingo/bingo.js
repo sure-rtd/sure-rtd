@@ -186,13 +186,11 @@ var imgUrl = [
 ];
 
 startButton.addEventListener('click', start);
-resetButton.addEventListener('click', reset);
 
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
-function start(frmset) {
-if(frmset==1){
+function start() {
 	if(statusFlg==='stop'){
         
         //ステータスを開始状態に
@@ -247,11 +245,3 @@ if(frmset==1){
   //停止状態以外では何もしない
   }
 }
-/*****************************************************/
-//スロットリセット：RESETボタンを押すと作動し、ページをリロード
-/*****************************************************/
-else if(frmset==2){
-    location.reload();
-}
-}
- 
