@@ -1,3 +1,9 @@
+var calcButton = document.getElementById('calc');
+var clearButton = document.getElementById('clear');
+
+calcButton.addEventListener('click', calc);
+clearButton.addEventListener('click', clear);
+
 function calc(){
 	var getRate1 = document.getElementById('getRate1');
 	var getRate2 = document.getElementById('getRate2');
