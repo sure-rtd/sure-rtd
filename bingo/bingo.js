@@ -2,7 +2,6 @@
 //共通変数設定
 /*****************************************************/
 var startButton = document.getElementById('start');
-var stopButton = document.getElementById('stop');
 var resetButton = document.getElementById('reset');
 var displayArea = document.getElementById('display');
 var imageArea = document.getElementById('image');
@@ -10,7 +9,7 @@ var resultArea = document.getElementById('result');
 var slotTime = null;
 var result = [];
 var slotNumber = 0;
-var nMax = 101;
+var nMax = 82;
 var nMin = 0;
 var statusFlg = 'stop';
 
@@ -29,7 +28,7 @@ var units = [
 'ゼロシキ',
 'イザナギ',
 'ゼッターマン',
-'Asmk-2',
+'ASmk-2',
 'アヌビス',
 'グリムドア',
 'リヴァイア',
@@ -40,26 +39,6 @@ var units = [
 'ル・フェイ',
 'ユーリカ',
 'よりしろ',
-'オーガスタス',
-'ルーク',
-'アラン',
-'エイゼル',
-'ジョセフ',
-'フィリス',
-'ウルスラ',
-'エンゼリカ',
-'ヴァイオラ',
-'フィオナ',
-'フォスター',
-'ターナー',
-'エドワーズ',
-'スミス',
-'ロビン',
-'レイチェル',
-'メアリー',
-'ローザ',
-'ノーラ',
-'ローレッタ',
 'さくら',
 'かすみ',
 'つばき',
@@ -146,26 +125,6 @@ var imgUrl = [
 'https://4.bp.blogspot.com/-Bixjj-aJXhU/VvFK7myPQ_I/AAAAAAAAKRY/vRoM4zAJfbQ48TAMlAExlzWncKY8qOQSA/s1600/icon19.png"',
 'https://4.bp.blogspot.com/-3rKr8CQb068/VvFK70aCFvI/AAAAAAAAKRc/0IfWNYk0k_k27GU80Ku5FmUH7NnPo6D5g/s1600/icon20.png"',
 'https://1.bp.blogspot.com/-VSm5dHY0rWU/VvFK8Be0H-I/AAAAAAAAKRg/g_EW-2zD7D8-fdzwM4yt51iPgeVf0_gnw/s1600/icon25.png"',
-'https://2.bp.blogspot.com/-MIwFLiY2VjQ/VvFK8YeiFMI/AAAAAAAAKRk/cAKpiKHoAY4FbENihgz135qvUz8A-rb1A/s1600/icon33.png"',
-'https://2.bp.blogspot.com/-_InLtMxgEbE/VvFK8T-mubI/AAAAAAAAKRo/tpd-iDBPrCYWBeUirLH-tRkjRGK3tNtnA/s1600/icon34.png"',
-'https://2.bp.blogspot.com/-5YPc57hl6uA/VvFK8pcweuI/AAAAAAAAKRs/9B5t0Lc5B9scNDZmelA2u8k3Jvpa43hmQ/s1600/icon35.png"',
-'https://2.bp.blogspot.com/-v7VKrWywZqY/VvFK8yp83nI/AAAAAAAAKRw/flcgpLSq7BYsnJrhO0kF7a2vuJXpN-PxA/s1600/icon36.png"',
-'https://2.bp.blogspot.com/-DmT4p3l6lAE/VvFK8_2J_xI/AAAAAAAAKR0/HrMUgGaCVZ84KsqyqW2WyNmGTC9pIHdGQ/s1600/icon37.png"',
-'https://1.bp.blogspot.com/-daPy0dpWisg/VvFK9awyIOI/AAAAAAAAKR4/4TShb9D2-moOGszWr3kG_RIeqLBcwVUSw/s1600/icon38.png"',
-'https://2.bp.blogspot.com/-gIyQN8cWfcw/VvFK9al_v7I/AAAAAAAAKR8/M2ZTB6jJFUM4U5cB-1NTjHAFeGtz9tSkA/s1600/icon39.png"',
-'https://1.bp.blogspot.com/--BYKONeSFl0/VvFK9oDxZFI/AAAAAAAAKSA/yuHUTLMfuPU9ZQoQhblg3lzejOwzLzf8A/s1600/icon40.png"',
-'https://3.bp.blogspot.com/-Bb0c0YsbTvk/VvFK99mAlII/AAAAAAAAKSI/BBOA_UWyqEMRXV3zHOnGdJ0x2feikOOTw/s1600/icon41.png"',
-'https://2.bp.blogspot.com/-e7Scn7EZFlM/VvFK98NsYAI/AAAAAAAAKSE/LaWysyqucGsuvmMCxCB_nNZtJETFcsg1A/s1600/icon42.png"',
-'https://3.bp.blogspot.com/-hJtzfp8_GNE/VvFK-EaKpCI/AAAAAAAAKSM/_6CZQOBDRNQD7ZsZbqa5FcTW-JtNPE1Kg/s1600/icon43.png"',
-'https://2.bp.blogspot.com/-CfYu2wYnsAQ/VvFK-hiG-0I/AAAAAAAAKSQ/dQOfEeRzvcIszCAbdsxZQqCFWdIXT_OuA/s1600/icon44.png"',
-'https://2.bp.blogspot.com/-pcmMdiK_07Y/VvFK-mTWgjI/AAAAAAAAKSU/IjvD453P1yQFM6i3UJKXAxccuzvq-B75g/s1600/icon45.png"',
-'https://3.bp.blogspot.com/-W68ZZzceC4w/VvFK-4F_eLI/AAAAAAAAKSY/9ZmhPMr5RiopYjZvJy901XDRt9pJjUO6w/s1600/icon46.png"',
-'https://2.bp.blogspot.com/-8QDSQ8lTGN4/VvFK_J2kCQI/AAAAAAAAKSc/DfNExcvSdKEGJuWjSQtu3xRZo479WBb1w/s1600/icon47.png"',
-'https://2.bp.blogspot.com/-F3s7h8eeSro/VvFK_UStIqI/AAAAAAAAKSg/ZDPEb-RIMGYmHA-sSYoRwPr-HVEtY1-Qg/s1600/icon48.png"',
-'https://2.bp.blogspot.com/-FdO1j85Fe84/VvFK_TbbBUI/AAAAAAAAKSk/vR1uUWWE2bwnNxIg21CDPUnu2IMyRkxTQ/s1600/icon49.png"',
-'https://3.bp.blogspot.com/-K27AG6zyaYc/VvFK_oH-DCI/AAAAAAAAKSo/xpNdqDIs8e4Z59RSeC38OLRWX7zfLGUSQ/s1600/icon50.png"',
-'https://2.bp.blogspot.com/-EAZ-l03UzNo/VvFK_6raENI/AAAAAAAAKSs/7ieGIftCgggIXik9kbDP9kEo-5pyYDNOA/s1600/icon51.png"',
-'https://1.bp.blogspot.com/-ZmxbPGrSewU/VvFK_19m3yI/AAAAAAAAKSw/3M55Cjkd7OQ0KihpTOL8XUOtzYzP0hR_Q/s1600/icon52.png"',
 'https://3.bp.blogspot.com/-MfclG9Wyw_o/VvFLAECylPI/AAAAAAAAKS0/JPnGlfrCz9c92Ks-KqaBrojHXXo6mJApQ/s1600/icon65.png"',
 'https://4.bp.blogspot.com/-c1ZxtNGjw1A/VvFLAc2yLYI/AAAAAAAAKS4/Omo8D-x0LsUGvFl5q03yrs4bymJIE0AWg/s1600/icon66.png"',
 'https://3.bp.blogspot.com/-sGsWtIXgOPA/VvFLAjzDY6I/AAAAAAAAKS8/mMJogjtdle4C0BOZle2xOifZC6r8Ioi6Q/s1600/icon67.png"',
@@ -225,49 +184,17 @@ var imgUrl = [
 'https://4.bp.blogspot.com/-m1PNeQdtKtQ/VvFK6gB6JXI/AAAAAAAAKRA/dfKgFZrfZYofPW-L2jbUoHAaHv4BKYllA/s1600/icon145.png"',
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
-//localStorage.removeItem("rtd_unit_status_items");
 
 startButton.addEventListener('click', start);
-stopButton.addEventListener('click', stop);
 resetButton.addEventListener('click', reset);
 
-/*****************************************************/
-//データ取得	getUnitData
-//WeDataからJSONPで取得し、localstorageに格納する処理。
-//起動時に自動実行
-//	[LocalStorage Key]
-//		rtd_unit_status_items : ユニットステータスデータ本体。
-/*****************************************************/
-/*
-  var flgNeedGetJsonData = false;
-  var chkInfo;
-  var chkItems;
-  // ローカルストレージ対応判定
-  if (!localStorage) {
-    alert('ローカルストレージに対応したブラウザを使用してください。');
-    flgNeedGetJsonData = true;
-    retrun(false);
-  }
-	
-      var url = 'http://wedata.net/databases/rtd_unit_status/items.json?callback=?';
-      $.getJSON(url, function(jsonUnitData) {
-        localStorage.setItem('rtd_unit_status_items', JSON.stringify(jsonUnitData));
-      });
-
-	//LSからデータをJSON形式で引出
-  var unitdata = JSON.parse(localStorage.getItem('rtd_unit_status_items'));
-
-  //データ整理(Noで昇順ソート)
-  unitdata.sort(function(val1, val2) {
-    return (Number(val1.data.No) > Number(val2.data.No) ? 1 : -1);
-  });
-*/
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
 function start() {
 	if(statusFlg==='stop'){
-		//ステータスを開始状態に
+        
+        //ステータスを開始状態に
 		statusFlg = 'start';
 		// HTMLImageElement オブジェクトを作成する
 		var image = new Image();
@@ -279,14 +206,47 @@ function start() {
 			slotNumber = Math.floor(Math.random()*(nMax-nMin+1))+nMin;
       displayArea.value = units[slotNumber];
     }, 10);
+    //ボタンの表示をSTOPに変更
+    startButton.innerHTML = 'STOP';
+	}
+  
+/*****************************************************/
+//スロット停止：STOPボタンを押すと作動
+/*****************************************************/
+    else if(statusFlg==='start'){
+    //画像を表示
+    imageArea.src = imgUrl[slotNumber];
+		
+    if (slotTime) {
+	  	clearInterval(slotTime);
+    	slotTime = null;
+  	}
+
+    //ステータスを停止状態に
+	statusFlg = 'stop';		
+  
+    //resultエリアを加工して出力
+		result.push(units[slotNumber]);
+  	var resultText = '';
+  	var i = 1;
+  	for (var key in result) {
+  		resultText += i + ': ' + result[key] + '\n';
+        i +=1;
+    }
+      
+  	resultArea.value = resultText;
+	
+  	//出現したキャラは配列から削除
+		units.splice(slotNumber,1);
+		imgUrl.splice(slotNumber,1);
+		nMax -= 1;
+    //ボタンの表示をSTARTに変更
+    startButton.innerHTML = 'START';
 	}else{
   //停止状態以外では何もしない
   }
 }
 
-/*****************************************************/
-//スロット停止：STOPボタンを押すと作動
-/*****************************************************/
 function stop() {
 	if(statusFlg==='start'){
 		//ステータスを停止状態に
