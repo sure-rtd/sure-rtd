@@ -55,3 +55,4 @@ if(frmset=1){
 	setRate.value = '';
 	msg.value = '';
 }
+}
