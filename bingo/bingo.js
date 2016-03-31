@@ -1,6 +1,7 @@
 /*****************************************************/
 //共通変数設定
 /*****************************************************/
+function setElements(){
 var startButton = document.getElementById('start');
 var resetButton = document.getElementById('reset');
 var displayArea = document.getElementById('display');
@@ -184,12 +185,13 @@ var imgUrl = [
 'https://4.bp.blogspot.com/-m1PNeQdtKtQ/VvFK6gB6JXI/AAAAAAAAKRA/dfKgFZrfZYofPW-L2jbUoHAaHv4BKYllA/s1600/icon145.png"',
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
-
+}
 
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
-function start() {
+function start(frmset) {
+if(frmset==1){
 	if(statusFlg==='stop'){
         
         //ステータスを開始状態に
@@ -244,50 +246,11 @@ function start() {
   //停止状態以外では何もしない
   }
 }
-
-function stop() {
-	if(statusFlg==='start'){
-		//ステータスを停止状態に
-		statusFlg = 'stop';
-		
-    if (slotTime) {
-	  	clearInterval(slotTime);
-    	slotTime = null;
-  	}
-  
-  	//画像を表示
-  	imageArea.src = imgUrl[slotNumber];
-		
-    //resultエリアを加工して出力
-		result.push(units[slotNumber]);
-  	var resultText = '';
-  	for (var key in result) {
-  		resultText += result[key] + '\n';
-  	}
-  	resultArea.value = resultText;
-	
-  	//出現したキャラは配列から削除
-		units.splice(slotNumber,1);
-		imgUrl.splice(slotNumber,1);
-		nMax -= 1;
-	}else{
-  //開始状態以外では何もしない
-  }
-}
-
 /*****************************************************/
 //スロットリセット：RESETボタンを押すと作動し、ページをリロード
 /*****************************************************/
-function reset() {
-/*	if (slotTime) {
-		clearInterval(slotTime);
-		slotTime = null;
-	}
-    displayArea.value = '';
-    resultArea.value = '';
-		result = [];
-		i = 0;
-*/
+else if(frmset==2){
     location.reload();
+}
 }
  
