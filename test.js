@@ -1,6 +1,6 @@
 var slotTime = null;
 var slotNumber = 0;
-var nMax = 82;
+var nMax = 19;
 var nMin = 0;
 var statusFlg = 'stop';
 
