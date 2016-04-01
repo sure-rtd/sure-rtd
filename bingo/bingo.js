@@ -1,11 +1,6 @@
 /*****************************************************/
 //共通変数設定
 /*****************************************************/
-var startButton = document.getElementById('start');
-var resetButton = document.getElementById('reset');
-var displayArea = document.getElementById('display');
-var imageArea = document.getElementById('image');
-var resultArea = document.getElementById('result');
 var slotTime = null;
 var result = [];
 var slotNumber = 0;
@@ -185,13 +180,14 @@ var imgUrl = [
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
 
-startButton.addEventListener('click', start);
-resetButton.addEventListener('click', reset);
-
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
 function start() {
+	var startButton = document.getElementById('start');
+	var displayArea = document.getElementById('display');
+	var imageArea = document.getElementById('image');
+	var resultArea = document.getElementById('result');
 	if(statusFlg==='stop'){
         
         //ステータスを開始状態に
@@ -207,7 +203,7 @@ function start() {
       displayArea.value = units[slotNumber];
     }, 10);
     //ボタンの表示をSTOPに変更
-    startButton.innerHTML = 'STOP';
+    startButton.value = 'STOP';
 	}
   
 /*****************************************************/
@@ -241,54 +237,14 @@ function start() {
 		imgUrl.splice(slotNumber,1);
 		nMax -= 1;
     //ボタンの表示をSTARTに変更
-    startButton.innerHTML = 'START';
-	}else{
-  //停止状態以外では何もしない
-  }
-}
-
-function stop() {
-	if(statusFlg==='start'){
-		//ステータスを停止状態に
-		statusFlg = 'stop';
-		
-    if (slotTime) {
-	  	clearInterval(slotTime);
-    	slotTime = null;
-  	}
-  
-  	//画像を表示
-  	imageArea.src = imgUrl[slotNumber];
-		
-    //resultエリアを加工して出力
-		result.push(units[slotNumber]);
-  	var resultText = '';
-  	for (var key in result) {
-  		resultText += result[key] + '\n';
-  	}
-  	resultArea.value = resultText;
-	
-  	//出現したキャラは配列から削除
-		units.splice(slotNumber,1);
-		imgUrl.splice(slotNumber,1);
-		nMax -= 1;
-	}else{
-  //開始状態以外では何もしない
-  }
+    startButton.value = 'START';
+	}
 }
 
 /*****************************************************/
 //スロットリセット：RESETボタンを押すと作動し、ページをリロード
 /*****************************************************/
 function reset() {
-/*	if (slotTime) {
-		clearInterval(slotTime);
-		slotTime = null;
-	}
-    displayArea.value = '';
-    resultArea.value = '';
-		result = [];
-		i = 0;
-*/
-    location.reload();
+	var resetButton = document.getElementById('reset');
+	location.reload();
 }
