@@ -73,7 +73,7 @@ p3 {
 	font-size:15px;
 	color: #111;
 }
-button {
+#start, #reset {
     border:0px;
 	width:300px;
 	height:80px;
