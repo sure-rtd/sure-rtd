@@ -1,17 +1,17 @@
 /*****************************************************/
 //共通変数設定
 /*****************************************************/
-var statusFlg = 'stop';
 var startButton = document.getElementById('start');
+var resetButton = document.getElementById('reset');
 var displayArea = document.getElementById('display');
 var imageArea = document.getElementById('image');
 var resultArea = document.getElementById('result');
-
 var slotTime = null;
 var result = [];
 var slotNumber = 0;
 var nMax = 82;
 var nMin = 0;
+var statusFlg = 'stop';
 
 var units = [
 'グレン',
@@ -185,66 +185,110 @@ var imgUrl = [
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
 
-imageArea.src = imgUrl[24];
+startButton.addEventListener('click', start);
+resetButton.addEventListener('click', reset);
 
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
 function start() {
-if(statusFlg==='stop'){
-	//ステータスを開始状態に
-	statusFlg = 'start';
-	
-	// HTMLImageElement オブジェクトを作成する
-	var image = new Image();
-	
-	clearInterval(slotTime);
-	
-	//ランダムな整数を発生してタイマー秒間隔で無限にループ
-	slotTime = setInterval(slot(),10);
-
-	//ボタンの表示をSTOPに変更
-	startButton.innerHTML = 'STOP';
-}
+	if(statusFlg==='stop'){
+        
+        //ステータスを開始状態に
+		statusFlg = 'start';
+		// HTMLImageElement オブジェクトを作成する
+		var image = new Image();
+    if (slotTime) {
+        clearInterval(slotTime);
+    }
+		//ランダムな整数を発生してタイマー秒間隔で無限にループ
+    slotTime = setInterval(function () {
+			slotNumber = Math.floor(Math.random()*(nMax-nMin+1))+nMin;
+      displayArea.value = units[slotNumber];
+    }, 10);
+    //ボタンの表示をSTOPに変更
+    startButton.innerHTML = 'STOP';
+	}
+  
 /*****************************************************/
 //スロット停止：STOPボタンを押すと作動
 /*****************************************************/
-else if(statusFlg==='start'){
-	//画像を表示
-	imageArea.src = imgUrl[slotNumber];
+    else if(statusFlg==='start'){
+    //画像を表示
+    imageArea.src = imgUrl[slotNumber];
+		
+    if (slotTime) {
+	  	clearInterval(slotTime);
+    	slotTime = null;
+  	}
 
-	//スロット停止
-	clearInterval(slotTime);
-	slotTime = null;
-
-	//ステータスを停止状態に
-	statusFlg = 'stop';
-
-	//resultエリアを加工して出力
-	result.push(units[slotNumber]);
-	var resultText = '';
-	var i = 1;
-	for (var key in result) {
-		resultText += i + ': ' + result[key] + '\n';
-		i +=1;
-	}
-
-	resultArea.value = resultText;
-
-	//出現したキャラは配列から削除
-	units.splice(slotNumber,1);
-	imgUrl.splice(slotNumber,1);
-	nMax -= 1;
+    //ステータスを停止状態に
+	statusFlg = 'stop';		
+  
+    //resultエリアを加工して出力
+		result.push(units[slotNumber]);
+  	var resultText = '';
+  	var i = 1;
+  	for (var key in result) {
+  		resultText += i + ': ' + result[key] + '\n';
+        i +=1;
+    }
+      
+  	resultArea.value = resultText;
 	
-	//ボタンの表示をSTARTに変更
-	startButton.innerHTML = 'START';
+  	//出現したキャラは配列から削除
+		units.splice(slotNumber,1);
+		imgUrl.splice(slotNumber,1);
+		nMax -= 1;
+    //ボタンの表示をSTARTに変更
+    startButton.innerHTML = 'START';
+	}else{
+  //停止状態以外では何もしない
+  }
 }
+
+function stop() {
+	if(statusFlg==='start'){
+		//ステータスを停止状態に
+		statusFlg = 'stop';
+		
+    if (slotTime) {
+	  	clearInterval(slotTime);
+    	slotTime = null;
+  	}
+  
+  	//画像を表示
+  	imageArea.src = imgUrl[slotNumber];
+		
+    //resultエリアを加工して出力
+		result.push(units[slotNumber]);
+  	var resultText = '';
+  	for (var key in result) {
+  		resultText += result[key] + '\n';
+  	}
+  	resultArea.value = resultText;
+	
+  	//出現したキャラは配列から削除
+		units.splice(slotNumber,1);
+		imgUrl.splice(slotNumber,1);
+		nMax -= 1;
+	}else{
+  //開始状態以外では何もしない
+  }
 }
 
 /*****************************************************/
-//スロット処理：STARTボタン処理から呼び出し
+//スロットリセット：RESETボタンを押すと作動し、ページをリロード
 /*****************************************************/
-function slot(){
-	slotNumber = Math.floor(Math.random()*(nMax-nMin+1))+nMin;
-	displayArea.value = units[slotNumber];
+function reset() {
+/*	if (slotTime) {
+		clearInterval(slotTime);
+		slotTime = null;
+	}
+    displayArea.value = '';
+    resultArea.value = '';
+		result = [];
+		i = 0;
+*/
+    location.reload();
 }
