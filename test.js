@@ -13,6 +13,7 @@ startButton.addEventListener('click', start);
 resetButton.addEventListener('click', reset);
 
 function start() {
+	displayArea.value = 'test';
 	if(statusFlg==='stop'){
         
         //ステータスを開始状態に
