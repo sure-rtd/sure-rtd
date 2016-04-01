@@ -1,6 +1,3 @@
-var counter = 0;
-function start() {
-	if(counter==0){
 /*****************************************************/
 //共通変数設定
 /*****************************************************/
@@ -188,59 +185,64 @@ var imgUrl = [
 'https://3.bp.blogspot.com/-o_B2MVSGRqY/VvFK69bgVrI/AAAAAAAAKRE/WHcBpQQs6F8cPXTY2fL88zf2FL8J_PXfA/s1600/icon146.png"'
 ];
 
-}
-counter +=1;
 /*****************************************************/
 //スロット開始：STARTボタンを押すと作動
 /*****************************************************/
+function start() {
 if(statusFlg==='stop'){
-        
-        //ステータスを開始状態に
-		statusFlg = 'start';
-		// HTMLImageElement オブジェクトを作成する
-		var image = new Image();
-    if (slotTime) {
-        clearInterval(slotTime);
-    }
-		//ランダムな整数を発生してタイマー秒間隔で無限にループ
-    slotTime = setInterval(function () {
-			slotNumber = Math.floor(Math.random()*(nMax-nMin+1))+nMin;
-      displayArea.value = units[slotNumber];
-    }, 10);
-    //ボタンの表示をSTOPに変更
-    startButton.innerHTML = 'STOP';
+	//ステータスを開始状態に
+	statusFlg = 'start';
+	
+	// HTMLImageElement オブジェクトを作成する
+	var image = new Image();
+	
+	clearInterval(slotTime);
+	
+	//ランダムな整数を発生してタイマー秒間隔で無限にループ
+	slotTime = setInterval(slot(),10);
+
+	//ボタンの表示をSTOPに変更
+	startButton.innerHTML = 'STOP';
 }
 /*****************************************************/
 //スロット停止：STOPボタンを押すと作動
 /*****************************************************/
 else if(statusFlg==='start'){
-    //画像を表示
-    imageArea.src = imgUrl[slotNumber];
-		
-    if (slotTime) {
-	  	clearInterval(slotTime);
-    	slotTime = null;
-  	}
+	//画像を表示
+	imageArea.src = imgUrl[slotNumber];
 
-    //ステータスを停止状態に
-	statusFlg = 'stop';		
-  
-    //resultエリアを加工して出力
-		result.push(units[slotNumber]);
-  	var resultText = '';
-  	var i = 1;
-  	for (var key in result) {
-  		resultText += i + ': ' + result[key] + '\n';
-        i +=1;
-    }
-      
-  	resultArea.value = resultText;
-	
-  	//出現したキャラは配列から削除
-		units.splice(slotNumber,1);
-		imgUrl.splice(slotNumber,1);
-		nMax -= 1;
-    //ボタンの表示をSTARTに変更
-    startButton.innerHTML = 'START';
+	//スロット停止
+	clearInterval(slotTime);
+	slotTime = null;
+
+	//ステータスを停止状態に
+	statusFlg = 'stop';
+
+	//resultエリアを加工して出力
+	result.push(units[slotNumber]);
+	var resultText = '';
+	var i = 1;
+	for (var key in result) {
+		resultText += i + ': ' + result[key] + '\n';
+		i +=1;
 	}
+
+	resultArea.value = resultText;
+
+	//出現したキャラは配列から削除
+	units.splice(slotNumber,1);
+	imgUrl.splice(slotNumber,1);
+	nMax -= 1;
+	
+	//ボタンの表示をSTARTに変更
+	startButton.innerHTML = 'START';
+}
+}
+
+/*****************************************************/
+//スロット処理：STARTボタン処理から呼び出し
+/*****************************************************/
+function slot(){
+	slotNumber = Math.floor(Math.random()*(nMax-nMin+1))+nMin;
+	displayArea.value = units[slotNumber];
 }
