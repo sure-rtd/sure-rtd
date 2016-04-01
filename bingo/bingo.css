@@ -74,7 +74,7 @@ p3 {
 	color: #111;
 }
 #start, #reset {
-    border:0px;
+	border:0px;
 	width:300px;
 	height:80px;
 	font-size:50px;
@@ -83,13 +83,6 @@ p3 {
 	color:#fff;
 	padding: 5px 0;
 	margin:0.5em 0.5em 0 0;
-	border-style:none;/*デフォルトのボーダーを消す。ボーダーの指定を上書きしてもOK*/
-	background:#ff8c00;/*背景色を指定*/
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-moz-box-shadow: 2px 2px 3px 1px #666;
-	-webkit-box-shadow: 2px 2px 3px 1px #666;
-	box-shadow: 2px 2px 3px 1px #666;
-	text-shadow: 1px 1px 2px #000; 
+	border-style:none;
+	background:#ff8c00;
 }
