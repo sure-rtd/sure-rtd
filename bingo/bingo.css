@@ -26,8 +26,8 @@ p1 {
 img{
 /*    height:180px;
     width:180px; */
-    height:288px;
-    width:450px; 
+    height:385px;
+    width:600px; 
 }
 #display {
 	width:100%;
@@ -67,7 +67,7 @@ textarea {
 	background-color:#fffdfb;
 	overflow: scloll;
 	-webkit-overflow-scrolling: touch;
-    width:300px;
+    width:400px;
     height:3000px;
 }
 p3 {
