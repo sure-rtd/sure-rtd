@@ -30,7 +30,7 @@ img{
     width:450px; 
 }
 #display {
-/*	width:1200px;*/
+	width:100%;
 	background-color:transparent;
 	border: 0px;
 	font-size:120px;
