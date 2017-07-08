@@ -24,11 +24,11 @@ p1 {
 	-3px -3px 1px #EFE;
 }
 img{
-    height:180px;
-    width:180px; 
+/*    height:180px;
+    width:180px; */
 }
 #display {
-	width:750px;
+	width:1200px;
 	background-color:transparent;
 	border: 0px;
 	font-size:100px;
