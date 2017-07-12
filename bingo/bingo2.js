@@ -4,7 +4,7 @@
 var slotTime = null;
 var result = [];
 var slotNumber = 0;
-var nMax = 31;
+var nMax = 32;
 var nMin = 0;
 var statusFlg = 'stop';
 
@@ -40,7 +40,8 @@ var units = [
 'キルマ(の人形)',
 'シグムント',
 'リーヴァ',
-'ドーラ'
+'ドーラ',
+'ジャンヌ'
 ];
 
 var imgUrl = [
@@ -75,7 +76,8 @@ var imgUrl = [
 'bingo/30.png',
 'bingo/31.png',
 'bingo/32.png',
-'bingo/33.png'
+'bingo/33.png',
+'bingo/34.png'
 ];
 
 /*****************************************************/
